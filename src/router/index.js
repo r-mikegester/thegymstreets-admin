@@ -1,31 +1,49 @@
 import { createRouter, createWebHistory } from '@ionic/vue-router';
-import TabsPage from '../views/TabsPage.vue'
+import TabsPage from '../views/TabsPage.vue';
+
 
 const routes = [
   {
-    path: '/',
-    redirect: '/tabs/tab1'
+    path: '/login',
+    name: 'Login',
+    component: () => import('../components/auth/LoginPage.vue')
   },
+  {
+    path: '/',
+    redirect: '/tabs/Dashboard'
+  },
+
   {
     path: '/tabs/',
     component: TabsPage,
     children: [
       {
         path: '',
-        redirect: '/tabs/tab1'
+        redirect: 'tabs/Dashboard'
       },
       {
-        path: 'tab1',
-        component: () => import('@/views/Tab1Page.vue')
+        path: 'Dashboard',
+        component: () => import('@/views/DashboardPage.vue')
       },
       {
-        path: 'tab2',
-        component: () => import('@/views/Tab2Page.vue')
+        path: 'Members',
+        component: () => import('@/views/MembersPage.vue')
       },
       {
-        path: 'tab3',
-        component: () => import('@/views/Tab3Page.vue')
-      }
+        path: 'Profile',
+        component: () => import('@/views/ProfilePage.vue')
+      },
+      {
+        path: 'Workouts',
+        component: () => import('@/views/WorkoutsPage.vue')
+      },
+
+      {
+        path: '/settings',
+        name: 'Settings',
+        component: () => import('../components/SettingsPage.vue')
+      },
+
     ]
   }
 ]
@@ -35,4 +53,4 @@ const router = createRouter({
   routes
 })
 
-export default router
+export default router;
