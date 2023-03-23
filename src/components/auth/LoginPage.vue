@@ -72,18 +72,17 @@
     
 <script>
 import { IonContent } from '@ionic/vue';
-import { defineComponent } from 'vue';
 import { useRouter } from 'vue-router';
 import { useMenuStore } from '../../stores/useMenuStore';
+import { defineComponent } from 'vue';
 import { Icon } from '@iconify/vue';
-export default defineComponent({
-    methods: {
 
-    },
+export default defineComponent({
     components: {
         IonContent,
         Icon
     },
+    
     setup() {
         const store = useMenuStore()
         const router = useRouter()
@@ -96,7 +95,7 @@ export default defineComponent({
         return {
             login
         }
-    },
+    }
 
 })
 </script>

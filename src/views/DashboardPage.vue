@@ -254,9 +254,10 @@
 </template>
 
 <script>
-import { Icon } from '@iconify/vue';
-import { IonPage, IonContent, IonMenuToggle, IonButton, } from '@ionic/vue';
+
+import { IonPage, IonContent, IonMenuToggle, IonButton } from '@ionic/vue';
 import { defineComponent } from 'vue';
+import { Icon } from '@iconify/vue';
 import { star } from 'ionicons/icons';
 export default defineComponent({
   components: {
@@ -264,7 +265,7 @@ export default defineComponent({
     IonContent,
     IonMenuToggle,
     Icon,
-    IonButton,
+    IonButton
 
   },
 

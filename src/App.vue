@@ -113,6 +113,7 @@
 import { IonApp, IonRouterOutlet, IonMenu, IonHeader, IonToolbar, IonTitle, IonContent, IonFooter, IonButtons, IonButton, IonIcon } from '@ionic/vue';
 import { logOutOutline, settingsOutline } from 'ionicons/icons';
 import { storeToRefs } from 'pinia';
+import { Icon } from '@iconify/vue';
 import { useMenuStore } from './stores/useMenuStore';
 const store = useMenuStore()
 const { isSwipable } = storeToRefs(store);
