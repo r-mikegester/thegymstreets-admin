@@ -22,7 +22,6 @@ import '@ionic/vue/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
-import "./components/BaseLayout.vue";
 import './assets/tailwind.css'
 import { createPinia } from 'pinia';
 
