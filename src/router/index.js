@@ -1,7 +1,6 @@
 import { createRouter, createWebHistory } from '@ionic/vue-router';
 import TabsPage from '../views/TabsPage.vue';
 
-
 const routes = [
   {
     path: '/login',
@@ -10,7 +9,7 @@ const routes = [
   },
   {
     path: '/',
-    redirect: '/tabs/Dashboard'
+    redirect: '/login'
   },
 
   {
@@ -39,18 +38,27 @@ const routes = [
       },
 
       {
-        path: '/settings',
-        name: 'Settings',
-        component: () => import('../components/SettingsPage.vue')
+        path: '/search',
+        name: 'Search',
+        component: () => import('../components/SearchPage.vue')
       },
-
+      {
+        path: '/newsfeed',
+        name: 'Newsfeed',
+        component: () => import('../pages/NewsFeed.vue')
+      },
+      {
+        path: '/chart',
+        name: 'chart',
+        component: () => import('../components/ChartsJS.vue')
+      },
     ]
   }
 ]
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
-  routes
+  routes: routes
 })
 
 export default router;
