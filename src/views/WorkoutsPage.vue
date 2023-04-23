@@ -2,104 +2,98 @@
   <ion-page>
     <ion-header>
       <ion-toolbar>
-        <ion-buttons slot="secondary">
-          <ion-button>
-            <ion-icon slot="icon-only" :icon="searchOutline"></ion-icon>
-          </ion-button>
-        </ion-buttons>
         <ion-buttons slot="primary">
           <ion-button>
-            <ion-icon slot="icon-only" :icon="createOutline"></ion-icon>
+            <Icon slot="icon-only" class="w-20 h-20" icon="solar:widget-add-broken" />
           </ion-button>
         </ion-buttons>
-        <ion-title>Workouts</ion-title>
+        <ion-title>Workouts Library</ion-title>
       </ion-toolbar>
     </ion-header>
     <ion-content :fullscreen="true">
       <div class="max-w-screen-xl p-5 mx-auto  ">
-        <div class="grid grid-cols-1 gap-5 lg:grid-cols-4 sm:grid-cols-2">
-          <div
-            class="relative flex items-end justify-start w-full rounded-3xl text-left bg-center bg-cover h-96 dark:bg-gray-500">
+        <h2 class="text-gray-600 font-bold">Major Muscle Groups</h2>
 
-            <img src="../assets/imgs/workouts/muscles-chest-dumbbell-workout-11.png" />
+        <div class="grid grid-cols-6 gap-3 lg:grid-cols-4 sm:grid-cols-2">
+          <div class="col-span-6 md:col-span-2  rounded-xl">
+              <swiper 
+              :spaceBetween="5" 
+              :slidesPerView="3" 
+              :grabCursor="true" 
+              :freeMode="true" 
+              :pagination="{
+                dynamicBullets: true,
+                clickable: true,
+              }"
+              :modules="modules" class="mySwiper  h-16 rounded-xl">
+                <swiper-slide class="bg-gradient-to-r from-red-400 to-red-700 text-center w-full h-10 rounded-xl text-gray-900 border-2 shadow-md">
+                 <h3 class="text-white font-extrabold text-xs mt-5">PECS</h3>
+                </swiper-slide>
+                <swiper-slide class="bg-gradient-to-r from-orange-400 to-orange-700 text-center w-full h-10  rounded-xl text-gray-900 border-2  shadow-md">
+                <h3 class="text-white font-extrabold text-xs mt-5">HAMS & CALVES</h3>
+                </swiper-slide>
+                <swiper-slide class="bg-gradient-to-r from-emerald-400 to-emerald-700 text-center w-full h-10  rounded-xl text-gray-900 border-2  shadow-md">
+                <h3 class="text-white font-extrabold text-xs mt-5">ARMS</h3>
+                </swiper-slide>
+                <swiper-slide class="bg-gradient-to-r from-yellow-400 to-yellow-700 text-center w-full h-10  rounded-xl text-gray-900 border-2  shadow-md">
+                <h3 class="text-white font-extrabold text-xs mt-5">ABS & OBLIQUE</h3>
+                </swiper-slide>
+                <swiper-slide class="bg-gradient-to-r from-blue-400 to-blue-700 text-center w-full h-10  rounded-xl text-gray-900 border-2  shadow-md">
+                <h3 class="text-white font-extrabold text-xs mt-5">TRAPS & LATS</h3>
+              </swiper-slide>
+              <swiper-slide class="bg-gradient-to-r from-pink-500 to-violet-500 text-center w-full h-10  rounded-xl text-gray-900 border-2 shadow-md">
+                <h3 class="text-white font-extrabold text-xs mt-5">SHOULDERS</h3>
+              </swiper-slide>
+              </swiper>
 
-            <div
-              class="absolute top-0 bottom-0 left-0 right-0 bg-gradient-to-b dark:via-transparent dark:from-gray-900 dark:to-gray-900">
             </div>
-            <div class="absolute top-0 left-0 right-0 flex items-center justify-between mx-5 mt-3">
-              <a rel="noopener noreferrer" href="#"
-                class="px-3 py-2 text-xs font-semibold tracking-wider uppercase dark:text-gray-100 bgundefined">CHEST
-                WORKOUT</a>
-              <div class="flex flex-col justify-start text-center dark:text-gray-100">
-                <span class="text-3xl font-semibold leading-none tracking-wide">Coach</span>
-                <span class="leading-none uppercase">Frederick</span>
-              </div>
-            </div>
-            <h2 class="z-50 p-5">
-              <a rel="noopener noreferrer" href="#" class="font-medium text-md hover:underline dark:text-gray-100">Chest
-                Workout perfect for building and having a lean Pectoralis Major</a>
-            </h2>
+ 
+
+        </div>
+        <h2 class="text-gray-600 py-5 font-bold ">All Workouts</h2>
+        <ion-searchbar animated="true" placeholder="Specific Workout" mode="ios"
+          class="border-2 mx-auto rounded-xl h-10 text-gray-900 border-gray-200 bg-white shadow-md mb-3"></ion-searchbar>
+        <div class="grid grid-cols-2 gap-3 lg:grid-cols-4 sm:grid-cols-2">
+          <div class="bg-white shadow-md rounded-3xl col-span-1 h-28">
+            <img src="../assets/imgs/workouts/dips.gif" class="h-28 mx-auto" />
           </div>
-          <div
-            class="relative flex items-end justify-start w-full rounded-3xl text-left bg-center bg-cover h-96 dark:bg-gray-500">
 
-            <img src="../assets/imgs/workouts/R.png" class="h-full" />
-
-            <div
-              class="absolute top-0 bottom-0 left-0 right-0 bg-gradient-to-b dark:via-transparent dark:from-gray-900 dark:to-gray-900">
-            </div>
-            <div class="absolute top-0 left-0 right-0 flex items-center justify-between mx-5 mt-3">
-              <a rel="noopener noreferrer" href="#"
-                class="px-3 py-2 text-xs font-semibold tracking-wider uppercase dark:text-gray-100 bgundefined">Quads</a>
-              <div class="flex flex-col justify-start text-center dark:text-gray-100">
-                <span class="text-3xl font-semibold leading-none tracking-wide">Coach</span>
-                <span class="leading-none uppercase">Frederick</span>
-              </div>
-            </div>
-            <h2 class="z-10 p-5">
-
-            </h2>
+          <div class="bg-white shadow-md rounded-3xl col-span-1 h-28">
+            <img src="../assets/imgs/workouts/arm-raise.gif" class="h-28 mx-auto" />
           </div>
-          <div
-            class="relative flex items-end justify-start w-full rounded-3xl text-left bg-center bg-cover h-96 dark:bg-gray-500">
-            <img src="../assets/imgs/workouts/e929d0f9cbbe3050ebd6612b3d10ecf4.jpg" class="h-full" />
-            <div
-              class="absolute top-0 bottom-0 left-0 right-0 bg-gradient-to-b dark:via-transparent dark:from-gray-900 dark:to-gray-900">
-            </div>
-            <div class="absolute top-0 left-0 right-0 flex items-center justify-between mx-5 mt-3">
-              <a rel="noopener noreferrer" href="#"
-                class="px-3 py-2 text-xs font-semibold tracking-wider uppercase dark:text-gray-100 bgundefined">Back</a>
-              <div class="flex flex-col justify-start text-center dark:text-gray-100">
-                <span class="text-3xl font-semibold leading-none tracking-wide">Coach</span>
-                <span class="leading-none uppercase">Frederick</span>
-              </div>
-            </div>
 
+          <div class="bg-white shadow-md rounded-3xl col-span-1 h-28">
+            <img src="../assets/imgs/workouts/trapsandlats.gif" class="h-28 mx-auto" />
           </div>
-          <div
-            class="relative flex items-end justify-start w-full rounded-3xl text-left bg-center bg-cover h-96 dark:bg-gray-500"
-            style="background-image: url(&quot;https://source.unsplash.com/random/243x320&quot;);">
-            <div
-              class="absolute top-0 bottom-0 left-0 right-0 bg-gradient-to-b dark:via-transparent dark:from-gray-900 dark:to-gray-900">
-            </div>
-            <div class="absolute top-0 left-0 right-0 flex items-center justify-between mx-5 mt-3">
-              <a rel="noopener noreferrer" href="#"
-                class="px-3 py-2 text-xs font-semibold tracking-wider uppercase dark:text-gray-100 bgundefined">Sports</a>
-              <div class="flex flex-col justify-start text-center dark:text-gray-100">
-                <span class="text-3xl font-semibold leading-none tracking-wide">19</span>
-                <span class="leading-none uppercase">Jul</span>
-              </div>
-            </div>
-            <h2 class="z-10 p-5">
-              <a rel="noopener noreferrer" href="#"
-                class="font-medium text-md hover:underline dark:text-gray-100">Doloribus
-                sit illo necessitatibus
-                architecto exercitationem enim</a>
-            </h2>
+
+          <div class="bg-white shadow-md rounded-3xl col-span-1 h-28">
+            <img src="../assets/imgs/workouts/lats.gif" class="h-28 mx-auto" />
+          </div>
+
+          <div class="bg-white shadow-md rounded-3xl col-span-1 h-28">
+            <img src="../assets/imgs/workouts/hams.gif" class="h-28 mx-auto" />
+          </div>
+
+          <div class="bg-white shadow-md rounded-3xl col-span-1 h-28">
+            <img src="../assets/imgs/workouts/pushups.gif" class="h-28 mx-auto" />
+          </div>
+
+          <div class="bg-white shadow-md rounded-3xl col-span-1 h-28">
+            <img src="../assets/imgs/workouts/major.gif" class="h-28 mx-auto" />
+          </div>
+
+          <div class="bg-white shadow-md rounded-3xl col-span-1 h-28">
+            <img src="../assets/imgs/workouts/traps.gif" class="h-28 mx-auto" />
+          </div>
+
+          <div class="bg-white shadow-md rounded-3xl col-span-1 h-28">
+            <img src="../assets/imgs/workouts/arms.gif" class="h-28 mx-auto" />
+          </div>
+          <div class="bg-white shadow-md rounded-3xl col-span-1 h-28">
+            <img src="../assets/imgs/workouts/legs.gif" class="h-28 mx-auto" />
           </div>
         </div>
       </div>
-
 
 
 
@@ -110,10 +104,14 @@
 </template>
 
 <script>
-import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonIcon, IonButtons, IonButton } from '@ionic/vue';
+import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonButton, IonSearchbar } from '@ionic/vue';
 import { defineComponent } from 'vue';
-import { createOutline, searchOutline } from 'ionicons/icons';
-
+import { createOutline } from 'ionicons/icons';
+import { Icon } from '@iconify/vue';
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import 'swiper/css/pagination';
+import { FreeMode, Pagination } from 'swiper';
+import 'swiper/css/free-mode';
 export default defineComponent({
   components: {
 
@@ -125,13 +123,20 @@ export default defineComponent({
     IonToolbar,
     IonTitle,
     IonContent,
-    IonIcon,
+    IonSearchbar,
     IonButtons,
-    IonButton
+    IonButton,
+    Icon,
+    Swiper,
+    SwiperSlide,
 
   },
   setup() {
-    return { createOutline, searchOutline };
+    return {
+      createOutline,
+      modules: [FreeMode, Pagination],
+
+    };
   }
 });
 </script>
