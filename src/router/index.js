@@ -52,6 +52,16 @@ const routes = [
         name: 'chart',
         component: () => import('../components/ChartsJS.vue')
       },
+      {
+        path: '/addclients',
+        name: 'addclients',
+        component: () => import('../pages/AddClients.vue')
+      },
+      {
+        path: '/addcoaches',
+        name: 'addcoaches',
+        component: () => import('../pages/AddCoaches.vue')
+      },
     ]
   }
 ]
