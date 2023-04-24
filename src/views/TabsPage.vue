@@ -1,9 +1,9 @@
 <template>
-  <ion-page id="main-content" class="bg-gray-100">
+  <ion-page id="main-content" class="bg-[#004aad]">
     <ion-tabs class="bg-transparent">
       <ion-router-outlet class="bg-transparent"></ion-router-outlet>
  
-      <ion-tab-bar slot="bottom" class="md:rounded-full md:mx-5 md:mb-5 rounded-t-3xl bg-transparent">
+      <ion-tab-bar slot="bottom" class=" md:mx-5 md:mb-0 rounded-t-3xl">
         <ion-tab-button tab="Dashboard" href="/tabs/Dashboard">
           <ion-icon :icon="barChartOutline" />
           <ion-label>Dashboard</ion-label>
