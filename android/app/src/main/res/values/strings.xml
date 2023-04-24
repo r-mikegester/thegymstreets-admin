@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">myApp</string>
-    <string name="title_activity_main">myApp</string>
-    <string name="package_name">io.ionic.starter</string>
-    <string name="custom_url_scheme">io.ionic.starter</string>
+    <string name="app_name">The Gym Street: Admin</string>
+    <string name="title_activity_main">The Gym Street: Admin</string>
+    <string name="package_name">com.thegymstreet.admin.app</string>
+    <string name="custom_url_scheme">com.thegymstreet.admin.app</string>
 </resources>
