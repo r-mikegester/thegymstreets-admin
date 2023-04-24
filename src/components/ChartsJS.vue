@@ -26,11 +26,11 @@ import backend from '../config/axios'
             data: {
                 labels: result.data.data.labels,
                 datasets: [{
-                    label: 'No. of Subscription Each Month',
-                    data: result.data.data.values,
+                    label: 'No. of Clients Each Month',
+                    data: result.data.data.clientValues,
                     backgroundColor: 'rgba(255, 238, 0, 0.50)',
                     borderColor: 'rgba(255, 238, 0, 100)',
-                    color:'#fff',
+                    color:'#000',
                     borderWidth: 3,
                     fill: true,
                     borderJoinStyle: 'round',
@@ -39,8 +39,8 @@ import backend from '../config/axios'
                     
                 },
                 {
-                    label: 'No. of Clients Each Month',
-                    data: [0,0,0,0,0,0,0,0,0,0,0,0],
+                    label: 'No. of Subscriptions Each Month',
+                    data: result.data.data.subscriptionValues,
                     backgroundColor: 'rgba(255, 255, 255, 0.60)',
                     borderColor: '#ffffff',
                     color:'#fff',
