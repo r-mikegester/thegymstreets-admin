@@ -15,7 +15,7 @@
               style="backdrop-filter: blur(50px);">
 
               <div
-                class="relative bg-center bg-no-repeat overflow-hidden bg-origin-content bg-cover rounded-3xl  md:shadow-md -z-10  h-96 md:h-[250px] filter brightness-50"
+                class="relative bg-center bg-no-repeat overflow-hidden bg-origin-content bg-cover rounded-3xl  md:shadow-md -z-10  h-96 md:h-[350px] filter brightness-50"
                 style="background-position: 100%; ">
                 <img src="../assets/imgs/logo/theGYMStreet-BG.jpg" class="rounded-b-3xl max-h-max w-full -z-30 mt-20" />
 
@@ -31,14 +31,14 @@
 
                 </span>
                 <div class="flex">
-                  <p class="mx-auto text-white px-3 py-1 font-bold rounded-3xl bg-[#004aad] md:ml-80 md:-mt-20 mb-10">
+                  <p class="mx-auto text-white px-3 py-1 font-bold rounded-3xl text-xl bg-[#004aad] md:ml-80 md:-mt-20 mb-10 ">
                     ADMIN </p>
                 </div>
               </div>
             </div>
           </div>
-          <div class=" grid md:grid-cols-6 md:gap-6 gap-3 mt-3">
-            <div class=" mx-0  mt-3 justify-center md:col-span-3">
+          <div class=" grid md:grid-cols-6 md:gap-6 gap-3 mt-3 mx-5">
+            <div class=" mx-0  mt-3 justify-center md:col-span-2">
               <div
                 class=" bg-white max-w-9xl md:max-w-full text-gray-900  row-span-3 row-start-1 mx-3 justify-center md:mx-0 row-end-3 rounded-3xl">
                 <div class="flex flex-col shadow-md max-w-9xl rounded-3xl  h-full">
@@ -73,7 +73,7 @@
                 </div>
               </div>
             </div>
-            <div class=" mx-0  mt-3 justify-center md:col-span-3">
+            <div class=" mx-0  mt-3 justify-center md:col-span-2">
               <div
                 class=" bg-white max-w-9xl md:max-w-full text-gray-900  row-span-3 row-start-1 mx-3 justify-center md:mx-0 row-end-3 rounded-3xl">
                 <div class="flex flex-col shadow-md max-w-9xl rounded-3xl  h-full">
@@ -92,7 +92,7 @@
                       </div>
                     </a>
 
-                    <a href="https://m.me/r.mikegester" class="flex  border-gray-200 dark:border-gray-700 py-2.5  ion-activatable ripple-parent rectangle">
+                   <!-- <a href="https://m.me/r.mikegester" class="flex  border-gray-200 dark:border-gray-700 py-2.5  ion-activatable ripple-parent rectangle">
                       <ion-ripple-effect></ion-ripple-effect>
                       <span class="p-2 bg-white rounded-md text-[#004aad]">
                         <Icon icon="basil:facebook-messenger-outline" class="w-10 h-10" />
@@ -101,7 +101,7 @@
                         <p class="text-xl text-gray-800  font-semibold"> Messenger </p>
                         <p class="dark:text-gray-600"> The Gym Street</p>
                       </div>
-                    </a>
+                    </a>-->
 
                     <a href="tel:09357456767" class="flex  border-gray-200 dark:border-gray-700 py-2.5  ion-activatable ripple-parent rectangle">
                       <ion-ripple-effect></ion-ripple-effect>
@@ -120,7 +120,7 @@
                 </div>
               </div>
             </div>
-            <div class=" mx-0  my-3 justify-center md:col-span-3">
+            <div class=" mx-0  my-3 justify-center md:col-span-2">
               <div
                 class=" bg-white max-w-9xl text-gray-900 col-span-3 md:col-span-2 row-span-3 row-start-1 mx-3 justify-center md:mx-0 row-end-3 rounded-3xl">
                 <div class="flex flex-col shadow-md max-w-9xl rounded-3xl  h-full">
@@ -128,7 +128,7 @@
 
 
                   <div class=" p-3 rounded-2xl m-2 ">
-                    <a  class="flex py-2.5  ion-activatable ripple-parent rectangle" disabled>
+                   <!-- <a  class="flex py-2.5  ion-activatable ripple-parent rectangle" disabled>
                       <ion-ripple-effect></ion-ripple-effect>
                       <span class="p-2 bg-white rounded-md  text-[#004aad]">
                         <Icon icon="fluent-mdl2:edit-contact" class="w-10 h-10" />
@@ -137,7 +137,7 @@
                         <p class="text-xl text-gray-800  font-semibold ">Personalization</p>
                         <p class="dark:text-gray-600"> Edit profile information</p>
                       </div>
-                    </a>
+                    </a>-->
 
                     <a class="flex py-2.5  ion-activatable ripple-parent rectangle" disabled>
                       <ion-ripple-effect></ion-ripple-effect>
