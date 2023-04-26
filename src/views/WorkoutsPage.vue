@@ -8,16 +8,16 @@
           </ion-button>
         </ion-buttons>
         <ion-title>Workouts Library</ion-title>
-        
-      </ion-toolbar><ion-searchbar animated="true" placeholder="Search" mode="ios"  class=" mx-auto h-16 text-white md:w-2/4 bg-[#004aad]"></ion-searchbar>
+      </ion-toolbar>
+       <ion-searchbar animated="true" placeholder="Search" mode="ios" class="mx-auto h-16 text-white md:w-2/4 bg-[#004aad]" v-model="searchTerm"></ion-searchbar>
     </ion-header>
     <ion-content :fullscreen="true">
       <div class="max-w-screen-xl p-5 mx-auto">
         <ion-list lines="none">
-          <ion-item class="text-gray-900" v-for="(workout, index) in workouts" :key="index">
+          <ion-item class="text-gray-900" v-for="(workout, index) in filteredWorkouts" :key="index">
             <ion-thumbnail slot="start">
-          <img alt="Silhouette of mountains" src="../assets/imgs/thumbnail.svg" />
-        </ion-thumbnail>
+              <img alt="Silhouette of mountains" src="../assets/imgs/thumbnail.svg" />
+            </ion-thumbnail>
             <ion-label>
               <h2>{{ workout.title }}</h2>
               <p>{{ workout.description }}</p>
@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonButton, IonSearchbar, IonItem, IonList, IonLabel, IonThumbnail,  } from '@ionic/vue';
+import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonButton, IonSearchbar, IonItem, IonList, IonLabel, IonThumbnail } from '@ionic/vue';
 import { defineComponent } from 'vue';
 import { createOutline } from 'ionicons/icons';
 import { Icon } from '@iconify/vue';
@@ -52,7 +52,8 @@ export default defineComponent({
     Icon,
     IonItem,
     IonList,
-    IonLabel, IonThumbnail, 
+    IonLabel,
+    IonThumbnail,
   },
   setup() {
     return {
@@ -63,6 +64,7 @@ export default defineComponent({
   data() {
     return {
       workouts: [],
+      searchTerm: '',
     };
   },
   async mounted() {
@@ -70,9 +72,15 @@ export default defineComponent({
       const response = await backend.get('/v1/admin/workout-library');
       this.workouts = response.data.data;
     } catch (error) {
-      
       console.error(error);
     }
+  },
+  computed: {
+    filteredWorkouts() {
+      return this.workouts.filter((workout) =>
+        workout.title.toLowerCase().includes(this.searchTerm.toLowerCase())
+      );
+    },
   },
 });
 </script>
