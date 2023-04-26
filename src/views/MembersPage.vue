@@ -9,7 +9,7 @@
         </ion-buttons>
         <ion-title>Members</ion-title>
       </ion-toolbar>
-      <ion-searchbar animated="true" placeholder="Search" mode="ios"  class=" mx-auto h-16 md:w-2/4 text-white  bg-[#004aad]"></ion-searchbar>
+      <ion-searchbar v-model="searchTerm" animated="true" placeholder="Search" mode="ios"  class=" mx-auto h-16 mb-1 md:w-2/4  text-white  bg-[#004aad]"></ion-searchbar>
     </ion-header>
     <ion-content>
       <ion-action-sheet
@@ -18,14 +18,14 @@
     header="Add Members"
     class="addaction"
     :buttons="actionSheetButtons"
+    @ionActionSheetDidDismiss="handleActionSheetDismiss"
   ></ion-action-sheet>
       <div class=" min-h-full bg-fixed pb-0 ">
         <MembersWrap>
-          <MembersTab title="Clients">
-          
-            
+          <MembersTab title="Clients" class="">
+              
           <div class=" max-w-screen-xl p-5 mx-auto">
-            <ion-item lines="none" class="text-gray-900" v-for="client in clients" :key="client.id">
+            <ion-item lines="none" class="text-gray-900" v-for="client in filteredClients" :key="client.id">
               <ion-avatar slot="start">
                 <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
               </ion-avatar>
@@ -47,7 +47,7 @@
 
                     <ion-reorder-group>
 
-                      <ion-item lines="none" class="text-gray-900" v-for="coaches in coaches" :key="coaches.id">
+                      <ion-item lines="none" class="text-gray-900" v-for="coaches in filteredCoaches" :key="coaches.id">
                         <ion-avatar slot="start">
                           <img alt="Silhouette of a person's head"
                             src="https://ionicframework.com/docs/img/demos/avatar.svg" />
@@ -117,20 +117,38 @@ export default defineComponent({
     IonAvatar,
     IonSearchbar, IonActionSheet
   },
+  methods: {
+  handleActionSheetDismiss(event) {
+    const buttonClicked = event.detail.role;
+    const buttonData = event.detail.data;
+
+    if (buttonClicked !== 'cancel' && buttonData.route) {
+      this.$router.push(buttonData.route);
+    }
+  },
+},
+computed: {
+  filteredClients() {
+    return this.clients.filter(client => client.firstName.toLowerCase().includes(this.searchTerm.toLowerCase()) || client.middleName.toLowerCase().includes(this.searchTerm.toLowerCase()) || client.lastName.toLowerCase().includes(this.searchTerm.toLowerCase()));
+  },
+  filteredCoaches() {
+    return this.coaches.filter(coach => coach.firstName.toLowerCase().includes(this.searchTerm.toLowerCase()) || coach.middleName.toLowerCase().includes(this.searchTerm.toLowerCase()) || coach.lastName.toLowerCase().includes(this.searchTerm.toLowerCase()));
+  },
+},
   setup() {
     const actionSheetButtons = [
         {
           text: 'Clients',
           role: 'add Clients',
           data: {
-            action: '/addclients',
+            route: '/addclients',
           },
         },
         {
           text: 'Coaches',
           role: 'add Coaches',
           data: {
-            action: '/addcoaches',
+            route: '/addcoaches',
           },
         },
         {
@@ -150,6 +168,7 @@ export default defineComponent({
       clients: [],
       coaches: [],
       admins: [],
+      searchTerm: '',
     };
   },
   async mounted() {
