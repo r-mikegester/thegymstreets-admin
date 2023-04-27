@@ -1,5 +1,45 @@
 <template>
-    <div>
-        <h1>ADD CLIENTS FORM</h1>
-    </div>
+    <ion-page>
+        <ion-header>
+            <ion-toolbar>
+                <ion-buttons slot="start">
+                    <ion-back-button default-href="/"></ion-back-button>
+                </ion-buttons>
+                <ion-title>Add CLients</ion-title>
+            </ion-toolbar>
+        </ion-header>
+        <ion-content :fullscreen="true">
+
+            <div class="min-h-full p-5">
+               <div>ADD CLIENTS</div>
+            </div>
+
+        </ion-content>
+    </ion-page>
 </template>
+  
+<script>
+import { IonPage, IonHeader, IonToolbar, IonContent, IonBackButton, IonButtons, IonTitle } from '@ionic/vue';
+import { defineComponent } from 'vue';
+import { createOutline, settingsOutline } from 'ionicons/icons';
+
+export default defineComponent({
+    components: {
+        // IonCardHeader,
+        //  IonCardSubtitle,
+        //  IonCardTitle,
+        IonPage,
+        IonHeader,
+        IonToolbar,
+        IonContent,
+        IonBackButton,
+        IonButtons,
+        IonTitle
+
+    },
+    setup() {
+        return { createOutline, settingsOutline };
+    }
+});
+</script>
+  
