@@ -25,7 +25,7 @@
           <MembersTab title="Clients" class="">
               
           <div class=" max-w-screen-xl p-5 mx-auto">
-            <ion-item lines="none" class="text-gray-900" v-for="client in filteredClients" :key="client.id">
+            <ion-item href="#" lines="none" class="text-gray-900" v-for="client in filteredClients" :key="client.id">
               <ion-avatar slot="start">
                 <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
               </ion-avatar>
