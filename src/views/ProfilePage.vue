@@ -73,7 +73,7 @@
                 </div>
               </div>
             </div>-->
-            <div class=" mx-0  mt-3 justify-center md:col-span-2">
+            <div class=" mx-0  mt-3 justify-center md:col-span-3">
               <div
                 class=" bg-white max-w-9xl md:max-w-full text-gray-900  row-span-3 row-start-1 mx-3 justify-center md:mx-0 row-end-3 rounded-3xl">
                 <div class="flex flex-col shadow-md max-w-9xl rounded-3xl  h-full">
@@ -120,7 +120,7 @@
                 </div>
               </div>
             </div>
-            <div class=" mx-0  my-3 justify-center md:col-span-2">
+            <div class=" mx-0  my-3 justify-center md:col-span-3">
               <div
                 class=" bg-white max-w-9xl text-gray-900 col-span-3 md:col-span-2 row-span-3 row-start-1 mx-3 justify-center md:mx-0 row-end-3 rounded-3xl">
                 <div class="flex flex-col shadow-md max-w-9xl rounded-3xl  h-full">
