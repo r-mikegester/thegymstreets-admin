@@ -25,16 +25,20 @@
           <MembersTab title="Clients" class="">
               
           <div class=" max-w-screen-xl p-5 mx-auto">
-            <ion-item href="#" lines="none" class="text-gray-900" v-for="client in filteredClients" :key="client.id">
-              <ion-avatar slot="start">
+           
+            <ion-nav-link router-direction="forward" :component="component">
+            <ion-item href="/clientsView" lines="none" class="text-gray-900 hover:bg-gray-400 focus:text-gray-900 transition-all ease-in-out ion-activatable ripple-parent rounded-rectangle" v-for="client in filteredClients" :key="client.id">
+              
+               <ion-avatar slot="start">
                 <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
               </ion-avatar>
               <ion-label>
                 <h3 class="text-md">{{ client.firstName }} {{ client.middleName }} {{ client.lastName }}</h3>
                 <ion-badge slot="end" color="danger" v-if="client.requiresCoaching && client.coachings.length === 0">Need Coach</ion-badge>
               </ion-label>
-         
+          <ion-ripple-effect class="customRipple"></ion-ripple-effect>
             </ion-item>
+            </ion-nav-link>
           </div>
 
           </MembersTab>
@@ -47,7 +51,7 @@
 
                     <ion-reorder-group>
 
-                      <ion-item lines="none" class="text-gray-900" v-for="coaches in filteredCoaches" :key="coaches.id">
+                      <ion-item lines="none" class=" text-gray-900 hover:bg-gray-400 focus:text-gray-900 transition-all ease-in-out" v-for="coaches in filteredCoaches" :key="coaches.id">
                         <ion-avatar slot="start">
                           <img alt="Silhouette of a person's head"
                             src="https://ionicframework.com/docs/img/demos/avatar.svg" />
@@ -90,11 +94,12 @@ import {
   IonReorderGroup,
   IonLabel,
   IonAvatar,
-  IonSearchbar, IonActionSheet
+  IonSearchbar, IonActionSheet, IonNavLink, IonRippleEffect
  
 } from '@ionic/vue';
 import MembersWrap from '../components/MembersWrap.vue';
 import MembersTab from '../components/MembersTab.vue';
+import ClientsView from '../components/members/clients/ClientsPage.vue';
 import { personAddOutline, personCircle, } from 'ionicons/icons';
 import { defineComponent} from 'vue';
 import backend from '../config/axios'
@@ -115,7 +120,7 @@ export default defineComponent({
     IonReorderGroup,
     IonLabel,
     IonAvatar,
-    IonSearchbar, IonActionSheet
+    IonSearchbar, IonActionSheet, IonNavLink,IonRippleEffect
   },
   methods: {
   handleActionSheetDismiss(event) {
@@ -160,7 +165,7 @@ computed: {
         },
       ];
     return{
-      personAddOutline, personCircle, actionSheetButtons
+      personAddOutline, personCircle, actionSheetButtons, component: ClientsView,
     }
   },
   data() {
@@ -195,5 +200,9 @@ computed: {
 .rectangle {
   width: 97vw;
   height: auto;
+}
+
+.customRipple{
+  color: #501ace;
 }
 </style>
