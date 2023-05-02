@@ -37,8 +37,8 @@
               </div>
             </div>
           </div>
-          <div class=" grid md:grid-cols-6 md:gap-6 gap-3 mt-3 mx-5">
-            <div class=" mx-0  mt-3 justify-center md:col-span-2">
+          <div class=" grid md:grid-cols-6 md:gap-6 gap-3 mt-3 mx-3">
+            <!--<div class=" mx-0  mt-3 justify-center md:col-span-2">
               <div
                 class=" bg-white max-w-9xl md:max-w-full text-gray-900  row-span-3 row-start-1 mx-3 justify-center md:mx-0 row-end-3 rounded-3xl">
                 <div class="flex flex-col shadow-md max-w-9xl rounded-3xl  h-full">
@@ -72,7 +72,7 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div>-->
             <div class=" mx-0  mt-3 justify-center md:col-span-2">
               <div
                 class=" bg-white max-w-9xl md:max-w-full text-gray-900  row-span-3 row-start-1 mx-3 justify-center md:mx-0 row-end-3 rounded-3xl">
