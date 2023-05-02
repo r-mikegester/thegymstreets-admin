@@ -1,6 +1,6 @@
 <template>
-  <ion-page id="main-content" class="bg-[#004aad]">
-    <ion-tabs class="bg-transparent">
+  <ion-page id="main-content" class="bg-gray-100 md:bg-[#004aad]">
+    <ion-tabs class="bg-transparent rounded-t-3xl">
       <ion-router-outlet class="bg-transparent"></ion-router-outlet>
  
       <ion-tab-bar slot="bottom" class=" md:mx-5 md:mb-0 rounded-t-3xl">
