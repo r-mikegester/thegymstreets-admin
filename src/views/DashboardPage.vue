@@ -103,7 +103,7 @@
       </div>
 
       <div class="bg-gray-100 rounded-t-3xl mt-96 md:my-0 mb-6 md:mt-96 bg-fixed md:hidden">
-        <div class="p-5 pb-16 h-full">
+        <div class="p-5 pb-36 h-full">
           <div class="grid grid-cols-6 gap-4 md:gap-6">
             <div class="col-span-6 md:col-span-3 gap-4 md:hidden">
               <div class="bg-white shadow-md rounded-3xl -mt-32 md:mt-10 h-80 mx-auto max-w-full">
