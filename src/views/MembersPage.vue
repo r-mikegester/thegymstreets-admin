@@ -27,7 +27,7 @@
           <div class=" max-w-screen-xl p-5 mx-auto">
            
             <ion-nav-link router-direction="forward" :component="component">
-            <ion-item href="/clientsView" lines="none" class="text-gray-900 hover:bg-gray-400 focus:text-gray-900 transition-all ease-in-out ion-activatable ripple-parent rounded-rectangle" v-for="client in filteredClients" :key="client.id">
+            <ion-item href="/clientsView" detail="true" lines="none" class="text-gray-900 hover:bg-gray-400 focus:text-gray-900 transition-all ease-in-out ion-activatable ripple-parent rounded-rectangle" v-for="client in filteredClients" :key="client.id">
               
                <ion-avatar slot="start">
                 <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
@@ -49,9 +49,9 @@
                   class=" max-w-9xl text-gray-900 col-span-3 md:col-span-2 row-span-3 row-start-1  justify-center  row-end-3 rounded-3xl">
                   <div class="flex flex-col  max-w-3xl rounded-3xl  h-full">
 
-                    <ion-reorder-group>
-
-                      <ion-item lines="none" class=" text-gray-900 hover:bg-gray-400 focus:text-gray-900 transition-all ease-in-out" v-for="coaches in filteredCoaches" :key="coaches.id">
+                    
+                    <ion-nav-link router-direction="forward" :component="component">
+                      <ion-item href="/coachesView" detail="true" lines="none" class=" text-gray-900 hover:bg-gray-400 focus:text-gray-900 transition-all ion-activatable ripple-parent rounded-rectangle ease-in-out" v-for="coaches in filteredCoaches" :key="coaches.id">
                         <ion-avatar slot="start">
                           <img alt="Silhouette of a person's head"
                             src="https://ionicframework.com/docs/img/demos/avatar.svg" />
@@ -59,9 +59,9 @@
                         <ion-label>
                           <h3 class="text-md">{{ coaches.firstName }} {{ coaches.middleName }} {{ coaches.lastName }}</h3>
                         </ion-label>
-                   
+                        <ion-ripple-effect class="customRipple"></ion-ripple-effect>
                       </ion-item>
-                    </ion-reorder-group>
+       </ion-nav-link>
                   </div>
                 </div>
               </div>
@@ -91,7 +91,6 @@ import {
   IonButtons,
   IonButton,
   IonBadge,
-  IonReorderGroup,
   IonLabel,
   IonAvatar,
   IonSearchbar, IonActionSheet, IonNavLink, IonRippleEffect
@@ -117,27 +116,27 @@ export default defineComponent({
     IonButtons,
     IonButton,
     IonBadge,
-    IonReorderGroup,
     IonLabel,
     IonAvatar,
     IonSearchbar, IonActionSheet, IonNavLink,IonRippleEffect
   },
-  methods: {
-  handleActionSheetDismiss(event) {
-    const buttonClicked = event.detail.role;
-    const buttonData = event.detail.data;
-
-    if (buttonClicked !== 'cancel' && buttonData.route) {
-      this.$router.push(buttonData.route);
-    }
-  },
-},
+ 
 computed: {
   filteredClients() {
     return this.clients.filter(client => client.firstName.toLowerCase().includes(this.searchTerm.toLowerCase()) || client.middleName.toLowerCase().includes(this.searchTerm.toLowerCase()) || client.lastName.toLowerCase().includes(this.searchTerm.toLowerCase()));
   },
   filteredCoaches() {
     return this.coaches.filter(coach => coach.firstName.toLowerCase().includes(this.searchTerm.toLowerCase()) || coach.middleName.toLowerCase().includes(this.searchTerm.toLowerCase()) || coach.lastName.toLowerCase().includes(this.searchTerm.toLowerCase()));
+  },
+}, 
+methods: {
+  handleActionSheetDismiss(event) {
+    const buttonClicked = event.detail.role;
+    const buttonData = event.detail.data;
+
+    if (buttonClicked !== 'cancel' && buttonData && buttonData.route) {
+      this.$router.push(buttonData.route);
+    }
   },
 },
   setup() {
@@ -160,7 +159,7 @@ computed: {
           text: 'Cancel',
           role: 'cancel',
           data: {
-            action: 'cancel',
+            action: 'cancel ',
           },
         },
       ];
