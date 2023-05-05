@@ -2,12 +2,12 @@
     <ion-header>
       <ion-toolbar>
       
-        <ion-title>Newsfeed</ion-title>
+        <ion-title>...</ion-title>
       </ion-toolbar>
     </ion-header>
   
     <ion-content class="ion-padding">
-      <p class="text-center text-gray-600">Pull to refresh</p>
+      <p class="text-center text-gray-600">Loading...</p>
       <div class="min-h-full ">
                 <div class="bg-gray-200 h-64 my-5 animate-pulse rounded-3xl"></div>
                 <div class="bg-gray-200 h-64 my-5 animate-pulse rounded-3xl"></div>
