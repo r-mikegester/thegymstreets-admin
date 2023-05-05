@@ -67,6 +67,16 @@ const routes = [
         name: 'clientsView',
         component: () => import('../components/members/clients/ClientsPage.vue')
       },
+      {
+        path: '/coachesView',
+        name: 'coachesView',
+        component: () => import('../components/members/coaches/CoachesPage.vue')
+      },
+      {
+        path: '/workoutsView',
+        name: 'workoutsView',
+        component: () => import('../components/members/wokrouts/ViewWorkouts.vue')
+      },
     ]
   }
 ]
