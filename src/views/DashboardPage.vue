@@ -5,7 +5,7 @@
       <ion-title>Dashboard</ion-title>
     </ion-toolbar>
     <ion-content class="min-h-fit">
-      <div class="bg-[#004aad] w-full md:w-4/4 md:h-full h-64 fixed md:p-5 -z-50 rounded-b-3xl md:flex">
+      <div class="bg-[#004aad] w-full md:w-4/4 md:h-full h-72 fixed md:p-5 -z-50 rounded-b-3xl md:flex">
         <Charts class="col-span-6 h-full m-5 md:w-full mx-5 md:rounded-3xl  text-[#004aad]"></Charts>
         <div class="grid grid-cols-2 gap-4">
           <div class="col-span-6 md:col-span-2 gap-4 hidden md:block">
@@ -106,7 +106,7 @@
         <div class="p-5 pb-36 h-full">
           <div class="grid grid-cols-6 gap-4 md:gap-6">
             <div class="col-span-6 md:col-span-3 gap-4 md:hidden">
-              <div class="bg-white shadow-md rounded-3xl -mt-32 md:mt-10 h-80 mx-auto max-w-full">
+              <div class="bg-white shadow-md rounded-3xl -mt-20 md:mt-10 h-80 mx-auto max-w-full">
                 <div class="grid grid-cols-6 h-full w-full z-50">
                   <div
                     class=" bg-white max-w-9xl text-gray-700 col-span-6 md:col-span-6 justify-center md:mx-0  rounded-3xl">
