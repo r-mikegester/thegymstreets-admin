@@ -31,96 +31,51 @@
 
                 </span>
                 <div class="flex">
-                  <p class="mx-auto text-white px-3 py-1 font-bold rounded-3xl text-xl bg-[#004aad] md:ml-80 md:-mt-20 mb-10 ">
+                  <p
+                    class="mx-auto text-white px-3 py-1 font-bold rounded-3xl text-xl bg-[#004aad] md:ml-80 md:-mt-20 mb-10 ">
                     ADMIN </p>
                 </div>
               </div>
             </div>
           </div>
           <div class=" grid md:grid-cols-6 md:gap-6 gap-3 mt-3 mx-3">
-            <!--<div class=" mx-0  mt-3 justify-center md:col-span-2">
-              <div
-                class=" bg-white max-w-9xl md:max-w-full text-gray-900  row-span-3 row-start-1 mx-3 justify-center md:mx-0 row-end-3 rounded-3xl">
-                <div class="flex flex-col shadow-md max-w-9xl rounded-3xl  h-full">
-                  <div class="h-10 rounded-t-3xl mx-5 py-5 px-3 text-xl font-bold">Utilities</div>
-
-                  <div class=" p-3 rounded-2xl m-2">
-
-                    <a href="/newsfeed" class="flex  border-gray-200 dark:border-gray-700 py-2.5  ion-activatable ripple-parent rectangle">
-                      <ion-ripple-effect></ion-ripple-effect>
-                      <span class="p-2 bg-white rounded-md text-[#004aad]">
-                        <Icon icon="fluent:feed-24-regular" class="w-10 h-10" />
-                      </span>
-                      <div class="text-left ml-2.5 overflow-hidden" title="supp.mikegester@gmail.com">
-                        <p class="text-xl text-gray-800  font-semibold"> Newsfeed </p>
-                        <p class="dark:text-gray-600"> Updates and notifications</p>
-                      </div>
-                    </a>
-
-                    <a href="/" class="flex  border-gray-200 dark:border-gray-700 py-2.5  ion-activatable ripple-parent rectangle">
-                      <ion-ripple-effect></ion-ripple-effect>
-                      <span class="p-2 bg-white rounded-md text-[#004aad]">
-                        <Icon icon="material-symbols:shopping-bag-outline" class="w-10 h-10" />
-                      </span>
-                      <div class="text-left ml-2.5">
-                        <p class="text-xl text-gray-800  font-semibold"> Products </p>
-                        <p class="dark:text-gray-600"> Supplements, food and merch</p>
-                      </div>
-                    </a>
-
-                   
-                  </div>
-                </div>
-              </div>
-            </div>-->
-            <div class=" mx-0  mt-3 justify-center md:col-span-3">
+            <div class=" mx-0  mt-3 justify-center md:col-span-2">
               <div
                 class=" bg-white max-w-9xl md:max-w-full text-gray-900  row-span-3 row-start-1 mx-3 justify-center md:mx-0 row-end-3 rounded-3xl">
                 <div class="flex flex-col shadow-md max-w-9xl rounded-3xl  h-full">
                   <div class="h-10 rounded-t-3xl mx-5 py-5 px-3 text-xl font-bold">Social Links</div>
 
                   <div class=" p-3 rounded-2xl m-2">
-
-                    <a href="https://m.facebook.com/TheGymStreet" class="flex  border-gray-200 dark:border-gray-700 py-2.5  ion-activatable ripple-parent rectangle">
+                    <ion-item href="https://m.facebook.com/TheGymStreet" lines="none"
+                      class="text-gray-900 ion-activatable ripple-parent rectangle" id="openLoc" button detail="true">
                       <ion-ripple-effect></ion-ripple-effect>
-                      <span class="p-2 bg-white rounded-md text-[#004aad]">
+                      <span class="p-2 bg-white rounded-md  text-[#004aad]">
                         <Icon icon="ant-design:facebook-outlined" class="w-10 h-10" />
                       </span>
-                      <div class="text-left ml-2.5 overflow-hidden" title="supp.mikegester@gmail.com">
-                        <p class="text-xl text-gray-800  font-semibold"> Facebook Page </p>
-                        <p class="dark:text-gray-600"> The Gym Street</p>
+                      <div class="text-left ml-2 w-full">
+                        <p class="text-xl text-gray-800  font-semibold">Facebook Page</p>
+                        <p class="dark:text-gray-600 text-base"> The Gym Street</p>
                       </div>
-                    </a>
-
-                   <!-- <a href="https://m.me/r.mikegester" class="flex  border-gray-200 dark:border-gray-700 py-2.5  ion-activatable ripple-parent rectangle">
+                    </ion-item>
+                    <ion-item href="tel:09357456767" lines="none" class="text-gray-900 ion-activatable ripple-parent rectangle" id="openLoc" type="button"
+                      detail="true">
                       <ion-ripple-effect></ion-ripple-effect>
-                      <span class="p-2 bg-white rounded-md text-[#004aad]">
-                        <Icon icon="basil:facebook-messenger-outline" class="w-10 h-10" />
-                      </span>
-                      <div class="text-left ml-2.5">
-                        <p class="text-xl text-gray-800  font-semibold"> Messenger </p>
-                        <p class="dark:text-gray-600"> The Gym Street</p>
-                      </div>
-                    </a>-->
-
-                    <a href="tel:09357456767" class="flex  border-gray-200 dark:border-gray-700 py-2.5  ion-activatable ripple-parent rectangle">
-                      <ion-ripple-effect></ion-ripple-effect>
-                      <span class="p-2 bg-white rounded-md text-[#004aad]">
+                      <span class="p-2 bg-white rounded-md  text-[#004aad]">
                         <Icon icon="heroicons-outline:phone" class="w-10 h-10" />
                       </span>
-                      <div class="text-left ml-2.5">
-                        <p class="text-xl text-gray-800  font-semibold"> Phone Number </p>
-                        <p class="dark:text-gray-600">0935 745 6767</p>
-                      </div>
-                    </a>
 
+                      <div class="text-left ml-2">
+                        <p class="text-xl text-gray-800   font-semibold">Contact Number</p>
+                        <p class="dark:text-gray-600 text-base"> 0935 745 6767 </p>
+                      </div>
+                    </ion-item>
 
 
                   </div>
                 </div>
               </div>
             </div>
-            <div class=" mx-0  my-3 justify-center md:col-span-3">
+            <div class=" mx-0  my-3 justify-center md:col-span-2">
               <div
                 class=" bg-white max-w-9xl text-gray-900 col-span-3 md:col-span-2 row-span-3 row-start-1 mx-3 justify-center md:mx-0 row-end-3 rounded-3xl">
                 <div class="flex flex-col shadow-md max-w-9xl rounded-3xl  h-full">
@@ -128,7 +83,7 @@
 
 
                   <div class=" p-3 rounded-2xl m-2 ">
-                   <!-- <a  class="flex py-2.5  ion-activatable ripple-parent rectangle" disabled>
+                    <!-- <a  class="flex py-2.5  ion-activatable ripple-parent rectangle" disabled>
                       <ion-ripple-effect></ion-ripple-effect>
                       <span class="p-2 bg-white rounded-md  text-[#004aad]">
                         <Icon icon="fluent-mdl2:edit-contact" class="w-10 h-10" />
@@ -139,38 +94,51 @@
                       </div>
                     </a>-->
 
-                    <a class="flex py-2.5  ion-activatable ripple-parent rectangle" disabled>
+
+                    <ion-item lines="none" class="text-gray-900 ion-activatable ripple-parent rectangle" id="openLoc" button @click="openLoc()" detail="true">
                       <ion-ripple-effect></ion-ripple-effect>
                       <span class="p-2 bg-white rounded-md  text-[#004aad]">
                         <Icon icon="grommet-icons:map-location" class="w-10 h-10" />
                       </span>
                       <div class="text-left ml-2 w-full">
                         <p class="text-xl text-gray-800  font-semibold">Location</p>
-                        <p class="dark:text-gray-600"> View graphical location</p>
+                        <p class="dark:text-gray-600 text-base"> View graphical location</p>
                       </div>
-                    </a>
-
-                    <a href="/login" class="flex py-2.5 ion-activatable ripple-parent rectangle">
+                    </ion-item>
+                    <ion-item href="/login" lines="none" class="text-gray-900 ion-activatable ripple-parent rectangle" id="openLoc" type="button" detail="true">
                       <ion-ripple-effect></ion-ripple-effect>
                       <span class="p-2 bg-white rounded-md  text-[#004aad]">
                         <Icon icon="majesticons:door-exit-line" class="w-10 h-10" />
                       </span>
+
                       <div class="text-left ml-2">
                         <p class="text-xl text-gray-800   font-semibold">Exit</p>
-                        <p class="dark:text-gray-600"> Logout your account</p>
+                        <p class="dark:text-gray-600 text-base"> Logout your account</p>
                       </div>
-                    </a>
-                  
-                   
+                    </ion-item>
+
+
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="mx-auto">
-
-          </div>
+  
+          <ion-modal ref="modal" trigger="openLoc" handle-behavior="cycle" :is-open="isModalOpen" @didDismiss="closeLoc()"
+            :initial-breakpoint="0.75" :breakpoints="[0, 0.25, 0.5, 0.75, 1.00] " >
+            <ion-toolbar>
+              <ion-buttons slot="primary">
+                <ion-button @didDismiss="closeLoc()">
+                  <Icon icon="mingcute:close-fill" class="w-20 h-20" slot="icon-only" />
+                </ion-button>
+              </ion-buttons>
+              <ion-title>Location</ion-title>
+            </ion-toolbar>
+            <ion-content class="ion-padding">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1929.632311815758!2d121.08220072152969!3d14.69762167859153!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397bb6b06c3bc8d%3A0x5811043961e6d40a!2sThe%20Gym%20Street!5e0!3m2!1sen!2sph!4v1683251630852!5m2!1sen!2sph" class="w-full h-96 rounded-3xl shadow-md" style="border:0;" allowfullscreen="true" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </ion-content>
+          </ion-modal>
 
         </div>
 
@@ -183,8 +151,8 @@
 </template>
 
 <script>
-import { IonPage, IonContent, IonToolbar, IonHeader, IonTitle, IonRippleEffect  } from '@ionic/vue';
-import { defineComponent } from 'vue';
+import { IonPage, IonContent, IonToolbar, IonHeader, IonTitle, IonRippleEffect, IonItem, IonModal, IonButton, IonButtons } from '@ionic/vue';
+import { defineComponent, ref } from 'vue';
 import { Icon } from '@iconify/vue';
 import { createOutline, settingsOutline, exitOutline } from 'ionicons/icons';
 export default defineComponent({
@@ -195,28 +163,36 @@ export default defineComponent({
     Icon,
     IonHeader,
     IonTitle,
-    IonRippleEffect
+    IonRippleEffect, IonItem, IonModal, IonButton, IonButtons
 
 
   },
 
   setup() {
-    return { createOutline, settingsOutline, exitOutline };
+    const isModalOpen = ref(false);
+
+    const openLoc = () => {
+      isModalOpen.value = true;
+    };
+
+    const closeLoc = () => {
+      isModalOpen.value = false;
+    };
+    return { createOutline, settingsOutline, exitOutline, isModalOpen, openLoc, closeLoc };
   }
 });
 </script>
 <style scoped>
- .ripple-parent {
-    position: relative;
-    overflow: hidden;
+.ripple-parent {
+  position: relative;
+  overflow: hidden;
 
-    border: 1px solid transparent;
-    border-radius: 10px;
-    margin:1px;
-  }
+  border: 1px solid transparent;
+  border-radius: 10px;
+  margin: 1px;
+}
 
-  .rectangle {
-    width: 300px;
-    height: auto;
-  }
-</style>
+.rectangle {
+  width: 100%;
+  height: auto;
+}</style>
