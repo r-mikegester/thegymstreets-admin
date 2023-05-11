@@ -6,7 +6,7 @@
           <ion-back-button default-href="/tabs/Members"></ion-back-button>
         </ion-buttons>
         <ion-buttons slot="secondary">
-          <ion-button href="/tabs/Members">
+          <ion-button @click="addCoach">
             <Icon icon="ph:check-bold" class="w-10 h-10" slot="icon-only" />
           </ion-button>
         </ion-buttons>
@@ -28,7 +28,7 @@
             <span class="absolute">
               <Icon icon="ion:text" class="w-7 h-7 mx-5 text-gray-300 dark:text-gray-500" />
             </span>
-            <input type="text" v-model="fname" required
+            <input type="text" required  v-on:change="handleInputChange($event, 'firstName')"
               class="block w-full  py-3 text-gray-700 text-xl bg-white rounded-xl px-16 pr-5 dark:bg-white  focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40 border-2 border-gray-300 "
               placeholder="First Name*" :clear-input="true">
           </div>
@@ -37,7 +37,7 @@
             <span class="absolute">
               <Icon icon="ion:text" class="w-7 h-7 mx-5 text-gray-300 dark:text-gray-500" />
             </span>
-            <input type="text" v-model="mname"
+            <input type="text"  v-on:change="handleInputChange($event, 'middleName')"
               class="block w-full px-16 pr-5 py-3 text-gray-700 text-xl bg-white rounded-xl dark:bg-white focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40 border-2 border-gray-300"
               placeholder="Middle Name">
           </div>
@@ -46,7 +46,7 @@
             <span class="absolute">
               <Icon icon="ion:text" class="w-7 h-7 mx-5 text-gray-300 dark:text-gray-500" />
             </span>
-            <input type="text" v-model="lname" required
+            <input type="text" required  v-on:change="handleInputChange($event, 'lastName')"
               class="block w-full px-16 pr-5 py-3 text-gray-700 text-xl bg-white rounded-xl dark:bg-white focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40 border-2 border-gray-300"
               placeholder="Last Name*">
           </div>
@@ -56,14 +56,14 @@
               <Icon icon="material-symbols:alternate-email-rounded"
                 class="w-7 h-7 mx-5 text-gray-300 dark:text-gray-500" />
             </span>
-            <input type="email" v-model="email" required
+            <input type="email" required  v-on:change="handleInputChange($event, 'email')"
               class="block w-full px-16 pr-5 py-3 text-gray-700 text-xl bg-white rounded-xl dark:bg-white focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40 border-2 border-gray-300"
               placeholder="Email Address*">
           </div>
           <ion-list lines="none">
             <ion-item class="w-full" >
               
-              <ion-select aria-label="Gender" interface="action-sheet" placeholder="Select Gender" mode="ios" expand="full"  class=" -my-3 block w-full px-16  text-gray-700 text-xl bg-white rounded-xl dark:bg-white focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40 border-2 border-gray-300" >
+              <ion-select aria-label="Gender" interface="action-sheet"   @ionChange="handleSelectChange($event, 'gender')" placeholder="Select Gender" mode="ios" expand="full"  class=" -my-3 block w-full px-16  text-gray-700 text-xl bg-white rounded-xl dark:bg-white focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40 border-2 border-gray-300" >
                 <ion-select-option value="Male">Male</ion-select-option>
                 <ion-select-option value="Female">Female</ion-select-option>
                 <ion-select-option value="Others">Others</ion-select-option>
@@ -76,7 +76,7 @@
             <span class="absolute">
               <Icon icon="mingcute:phone-call-line" class="w-7 h-7 mx-5 text-gray-300 dark:text-gray-500" />
             </span>
-            <input type="number" v-model="phone" required
+            <input type="number" required  v-on:change="handleInputChange($event, 'phone')"
               class="block w-full px-16 pr-5 py-3 text-gray-700 text-xl bg-white rounded-xl dark:bg-white focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40 border-2 border-gray-300"
               placeholder="Phone No*">
           </div>
@@ -87,7 +87,7 @@
             <span class="absolute">
               <Icon icon="carbon:password" class="w-7 h-7 mx-5 text-gray-300 dark:text-gray-500" />
             </span>
-            <input type="password" required
+            <input type="password" required  v-on:change="handleInputChange($event, 'password')"
               class="block w-full px-16 pr-5 py-3 text-gray-700 text-xl bg-white rounded-xl dark:bg-white focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40 border-2 border-gray-300"
               placeholder="Password*">
           </div>
@@ -100,9 +100,11 @@
   
 <script>
 import { IonPage, IonHeader, IonToolbar, IonContent, IonBackButton, IonButtons, IonTitle, IonButton, IonAvatar, IonSelect, IonSelectOption, IonItem, IonList, } from '@ionic/vue';
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
 import { createOutline, settingsOutline } from 'ionicons/icons';
 import { Icon } from '@iconify/vue';
+import backend from '../config/axios';
+import { Toast } from '@capacitor/toast';
 export default defineComponent({
   components: {
     // IonCardHeader,
@@ -117,31 +119,55 @@ export default defineComponent({
     IonTitle, IonButton, Icon, IonAvatar, IonSelect, IonSelectOption, IonItem, IonList,
 
   },
+
+  data() {
+        return {
+             newCoach: { 
+                firstName: '', 
+                middleName: '', 
+                lastName: '', 
+                email: '',
+                gender: '',
+                phone: '+639',
+                password: '',
+            },
+        };
+    },
   setup() {
-    return { createOutline, settingsOutline };
+    const selectedOption = ref(false);
+    const inputValue = ref('');
+    return { createOutline, settingsOutline, inputValue, selectedOption };
   },
   methods: {
-    validateEmail(email) {
-      return email.match(/^(?=.{1,254}$)(?=.{1,64}@)[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/);
+        async addCoach() {
+            try {
+                await backend.post('/v1/admin/coaches', this.newCoach);
+                
+                this.$router.push('/tabs/Members')
+                Toast.show({
+                    text: 'Successfully added new coach.'
+                })
+            } catch (error) {
+                console.error(error);
+                Toast.show({
+                    text: 'An error has occured while adding the coach.'
+                })
+            }
+        },
+        handleInputChange(event, field) {
+            this.newCoach[field] = event.target.value
+            console.log(this.newCoach)
+        },
+        handleSelectChange(event, field) {
+            this.newCoach[field] = event.detail.value
+        },
+
+        markTouched() {
+            this.$refs.input.$el.classList.add('ion-touched')
+        },
+
+       
     },
-
-    validate(ev) {
-      const value = ev.target.value;
-
-      this.$refs.input.$el.classList.remove('ion-valid');
-      this.$refs.input.$el.classList.remove('ion-invalid');
-
-      if (value === '') return;
-
-      this.validateEmail(value)
-        ? this.$refs.input.$el.classList.add('ion-valid')
-        : this.$refs.input.$el.classList.add('ion-invalid');
-    },
-
-    markTouched() {
-      this.$refs.input.$el.classList.add('ion-touched')
-    }
-  },
 });
 </script>
   

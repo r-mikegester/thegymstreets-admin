@@ -79,20 +79,23 @@ export default defineComponent({
                 this.$router.push('/tabs/Dashboard');
 
                 const toast = await toastController.create({
+                    mode: 'ios',
                     message: 'Login successful',
                     duration: 100,
                     showCloseButton: true,
-                    closeButtonText: ''
+                    closeButtonText: '',
+                    position: 'top',
                 });
                 await toast.present();
             } catch(error) {
                 console.log(error)
                 const toast = await toastController.create({
+                    mode: 'ios',
                     message: 'Invalid email or password',
                     duration: 2000,
                     showCloseButton: true,
-                    closeButtonText: '',
-                    position: top,
+                    closeButtonText: 'Dismiss',
+                    position: 'top',
                 });
                 await toast.present();
             }

@@ -63,19 +63,19 @@ const routes = [
         component: () => import('../pages/AddCoaches.vue')
       },
       {
-        path: '/clientsView',
+        path: '/clientsView/:id',
         name: 'clientsView',
         component: () => import('../components/members/clients/ClientsPage.vue')
       },
       {
-        path: '/coachesView',
+        path: '/coachesView/:id',
         name: 'coachesView',
         component: () => import('../components/members/coaches/CoachesPage.vue')
       },
       {
-        path: '/workoutsView',
+        path: '/workoutsView/:id',
         name: 'workoutsView',
-        component: () => import('../components/members/wokrouts/ViewWorkouts.vue')
+        component: () => import('../components/members/workouts/ViewWorkouts.vue')
       },
     ]
   }

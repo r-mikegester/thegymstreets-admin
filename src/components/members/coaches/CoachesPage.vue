@@ -8,13 +8,13 @@
         <ion-title><!--Name of Client--></ion-title>
         <ion-buttons slot="primary">
                     <ion-button>
-                        <Icon slot="icon-only" icon="mdi:delete-empty-outline" class="w-10 h-10"/>
+                        <Icon slot="icon-only" icon="mdi:delete-empty-outline" @click="handleDeleteCoaches" class="w-10 h-10"/>
                     </ion-button>
                 </ion-buttons>
       </ion-toolbar>
     </ion-header>
     <ion-content :fullscreen="true">
-      <div class="mx-0 bg-fixed pb-0">
+      <div class="mx-0 bg-fixed pb-0" v-if="coach">
         <div class=" mx-auto min-h-full">
           <div class="text-center text-gray-800">
             <div
@@ -34,14 +34,14 @@
                 <span class="flex mx-auto ">
                   <h1
                     class="mx-auto md:mx-72 mt-5 md:-mt-32 md:ml-80 font-semibold  md:font-bold text-gray-900 text-3xl md:text-5xl text">
-                    Coach Name
+                    {{ coach.firstName }} {{ coach.lastName }}
                   </h1>
 
                 </span>
                 <div class="flex">
                   <p
                     class="mx-auto text-white px-3 py-1 font-bold rounded-3xl text-xl bg-[#004aad] md:ml-80 md:-mt-20 mb-10 ">
-                    3/3 </p>
+                    3 </p>
                 </div>
               </div>
             </div>
@@ -56,7 +56,7 @@
 
                   <div class=" p-3 rounded-2xl m-2">
 
-                    <a href="https://m.facebook.com/TheGymStreet"
+                    <a
                       class="flex  border-gray-200 dark:border-gray-700 py-2.5  ion-activatable ripple-parent rectangle">
                       <ion-ripple-effect></ion-ripple-effect>
                       <span class="p-2 bg-white rounded-md text-[#004aad]">
@@ -64,10 +64,10 @@
                       </span>
                       <div class="text-left ml-2.5 overflow-hidden" title="supp.mikegester@gmail.com">
                         <p class="text-xl text-gray-800  font-semibold">Full Name </p>
-                        <p class="dark:text-gray-600"> Coach Full Name</p>
+                        <p class="dark:text-gray-600"> {{ coach.firstName }} {{ coach.lastName }}</p>
                       </div>
                     </a>
-                    <a href="https://m.facebook.com/TheGymStreet"
+                    <a
                       class="flex  border-gray-200 dark:border-gray-700 py-2.5  ion-activatable ripple-parent rectangle">
                       <ion-ripple-effect></ion-ripple-effect>
                       <span class="p-2 bg-white rounded-md text-[#004aad]">
@@ -75,11 +75,11 @@
                       </span>
                       <div class="text-left ml-2.5 overflow-hidden" title="supp.mikegester@gmail.com">
                         <p class="text-xl text-gray-800  font-semibold">Email Address </p>
-                        <p class="dark:text-gray-600"> Coach Email</p>
+                        <p class="dark:text-gray-600"> {{ coach.email }}</p>
                       </div>
                     </a>
 
-                    <a href="tel:09357456767"
+                    <a
                       class="flex  border-gray-200 dark:border-gray-700 py-2.5  ion-activatable ripple-parent rectangle">
                       <ion-ripple-effect></ion-ripple-effect>
                       <span class="p-2 bg-white rounded-md text-[#004aad]">
@@ -87,11 +87,11 @@
                       </span>
                       <div class="text-left ml-2.5">
                         <p class="text-xl text-gray-800  font-semibold"> Gender </p>
-                        <p class="dark:text-gray-600">Male</p>
+                        <p class="dark:text-gray-600">{{ coach.gender }}</p>
                       </div>
                     </a>
 
-                    <a href="tel:09357456767"
+                    <a :href="'tel:' + coach.phone?.replace('+639', '09')"
                       class="flex  border-gray-200 dark:border-gray-700 py-2.5  ion-activatable ripple-parent rectangle">
                       <ion-ripple-effect></ion-ripple-effect>
                       <span class="p-2 bg-white rounded-md text-[#004aad]">
@@ -99,34 +99,27 @@
                       </span>
                       <div class="text-left ml-2.5">
                         <p class="text-xl text-gray-800  font-semibold"> Phone </p>
-                        <p class="dark:text-gray-600">903423423423</p>
+                        <p class="dark:text-gray-600">{{ coach.phone }}</p>
                       </div>
                     </a>
-                 
-
                   </div>
                 </div>
               </div>
             </div>
-
           </div>
-         
         </div>
-
-
       </div>
-
-
     </ion-content>
   </ion-page>
 </template>
   
 <script>
-import { IonPage, IonHeader, IonToolbar, IonContent, IonBackButton, IonButtons, IonTitle, IonRippleEffect, IonButton } from '@ionic/vue';
+import { IonPage, IonHeader, IonToolbar, IonContent, IonBackButton, IonButtons, alertController, IonTitle, IonRippleEffect, IonButton } from '@ionic/vue';
 import { defineComponent } from 'vue';
 import { createOutline, settingsOutline } from 'ionicons/icons';
 import backend from '../../../config/axios';
 import { Icon } from '@iconify/vue';
+import { Toast } from '@capacitor/toast';
 export default defineComponent({
   components: {
     // IonCardHeader,
@@ -148,13 +141,43 @@ export default defineComponent({
   },
   data() {
     return {
-      clients: [],
+      coach: [],
     };
   },
   async mounted() {
-    const clientsResult = await backend.get('/v1/admin/clients')
-    this.clients = clientsResult.data.data
+    const id = this.$route.params.id
+        const coachResult = await backend.get(`/v1/admin/coaches/${id}`)
+
+    this.coach = coachResult.data.data
+    console.log(this.coach)
   },
+  methods: {
+        async handleDeleteCoaches() {
+            const alert = await alertController.create({
+                mode: 'ios',
+                header: 'Delete Coach',
+                message: 'This will delete the coach and is unreversible. Continue?',
+                buttons: [{
+                    text: 'Yes',
+                    role: 'destructive',
+                    handler: async () => {
+                        await backend.delete(`/v1/admin/coaches/${this.coach.id}`)
+
+                        await Toast.show({
+                            text: 'Deleted successfully.',
+                        });
+
+                        this.$router.push('/tabs/Members')
+                    }
+                }, {
+                    text: 'No',
+                    role: 'cancel'
+                }],
+            });
+
+            await alert.present();
+        }
+    }
 });
 </script>
   

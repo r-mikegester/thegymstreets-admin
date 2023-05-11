@@ -27,10 +27,10 @@
           <div class=" max-w-screen-xl p-5 mx-auto">
            
             <ion-nav-link router-direction="forward" :component="component">
-            <ion-item href="/clientsView" detail="true" lines="none" class="text-gray-900 hover:bg-gray-400 focus:text-gray-900 transition-all ease-in-out ion-activatable ripple-parent rounded-rectangle" v-for="client in filteredClients" :key="client.id">
+            <ion-item :href="'/clientsView/' + client.id" detail="true" lines="none" class="text-gray-900 hover:bg-gray-400 focus:text-gray-900 transition-all ease-in-out ion-activatable ripple-parent rounded-rectangle" v-for="client in filteredClients" :key="client.id">
               
                <ion-avatar slot="start">
-                <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+                <img alt="Silhouette of a person's head"  :src="'https://api.dicebear.com/6.x/initials/svg?seed=' + client.firstName + client.lastName" />
               </ion-avatar>
               <ion-label>
                 <h3 class="text-md">{{ client.firstName }} {{ client.middleName }} {{ client.lastName }}</h3>
@@ -51,13 +51,13 @@
 
                     
                     <ion-nav-link router-direction="forward" :component="component">
-                      <ion-item href="/coachesView" detail="true" lines="none" class=" text-gray-900 hover:bg-gray-400 focus:text-gray-900 transition-all ion-activatable ripple-parent rounded-rectangle ease-in-out" v-for="coaches in filteredCoaches" :key="coaches.id">
+                      <ion-item :href="'/coachesView/' + coach.id " detail="true" lines="none" class=" text-gray-900 hover:bg-gray-400 focus:text-gray-900 transition-all ion-activatable ripple-parent rounded-rectangle ease-in-out" v-for="coach in filteredCoaches" :key="coach.id">
                         <ion-avatar slot="start">
                           <img alt="Silhouette of a person's head"
-                            src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+                          :src="'https://api.dicebear.com/6.x/initials/svg?seed=' + coach.firstName" />
                         </ion-avatar>
                         <ion-label>
-                          <h3 class="text-md">{{ coaches.firstName }} {{ coaches.middleName }} {{ coaches.lastName }}</h3>
+                          <h3 class="text-md">{{ coach.firstName }} {{ coach.middleName }} {{ coach.lastName }}</h3>
                         </ion-label>
                         <ion-ripple-effect class="customRipple"></ion-ripple-effect>
                       </ion-item>
@@ -123,7 +123,11 @@ export default defineComponent({
  
 computed: {
   filteredClients() {
-    return this.clients.filter(client => client.firstName.toLowerCase().includes(this.searchTerm.toLowerCase()) || client.middleName.toLowerCase().includes(this.searchTerm.toLowerCase()) || client.lastName.toLowerCase().includes(this.searchTerm.toLowerCase()));
+    return this.clients.filter(client => 
+      client?.firstName?.toLowerCase().includes(this.searchTerm.toLowerCase()) || 
+      client?.middleName?.toLowerCase().includes(this.searchTerm.toLowerCase()) || 
+      client?.lastName?.toLowerCase().includes(this.searchTerm.toLowerCase())
+    );
   },
   filteredCoaches() {
     return this.coaches.filter(coach => coach.firstName.toLowerCase().includes(this.searchTerm.toLowerCase()) || coach.middleName.toLowerCase().includes(this.searchTerm.toLowerCase()) || coach.lastName.toLowerCase().includes(this.searchTerm.toLowerCase()));

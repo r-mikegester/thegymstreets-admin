@@ -3,6 +3,8 @@ import App from './App.vue';
 import router from './router';
 //import { gapi } from 'gapi-script';
 import { IonicVue } from '@ionic/vue';
+import { defineCustomElements } from '@ionic/pwa-elements/loader';
+
 import './assets/tailwind.css';
 import '@ionic/vue/css/core.css';
 import '@ionic/vue/css/normalize.css';
@@ -31,3 +33,6 @@ gapi.load('auth2', () => {
   });
 });
 */
+
+
+defineCustomElements(window)

@@ -8,13 +8,13 @@
                 <ion-title><!--Name of Client--></ion-title>
                 <ion-buttons slot="primary">
                     <ion-button>
-                        <Icon slot="icon-only" icon="mdi:delete-empty-outline" class="w-10 h-10"/>
+                        <Icon slot="icon-only" icon="mdi:delete-empty-outline" @click="handleDeleteWorkout" class="w-10 h-10" />
                     </ion-button>
                 </ion-buttons>
             </ion-toolbar>
-        </ion-header> 
+        </ion-header>
         <ion-content :fullscreen="true">
-            <div class="mx-0 bg-fixed pb-0">
+            <div class="mx-0 bg-fixed pb-0" v-if="workout">
                 <div class=" mx-auto min-h-full">
                     <div class="text-center text-gray-800">
                         <div class="block  shadow-lg z-10  -mt-24 md:pb-10 md:py-1  md:px-3 bg-gradient-to-b bg-white w-full md:max-w-full rounded-b-3xl"
@@ -22,16 +22,16 @@
 
                             <div class="relative bg-center bg-no-repeat overflow-hidden bg-origin-content bg-cover rounded-3xl  md:shadow-md -z-10  h-full md:h-[350px] filter brightness-50"
                                 style="background-position: 100%; ">
-                                <img src="../../../assets/imgs/workouts/lats.gif"
+                                <img :src="workout.imageUrl"
                                     class="rounded-b-3xl max-h-max w-full -z-30 mt-20" />
 
                             </div>
                             <div class="z-50 md:-mt-20">
-                               
+
                                 <span class="flex mx-auto ">
                                     <h1
                                         class="mx-auto md:mx-72 mt-5 md:-mt-32 md:ml-80 font-semibold  md:font-bold text-gray-900 text-3xl md:text-5xl text">
-                                        Latissimus Lorem
+                                        {{ workout.title }}
                                     </h1>
 
                                 </span>
@@ -62,7 +62,7 @@
                                             </span>
                                             <div class="text-left ml-2.5 overflow-hidden" title="supp.mikegester@gmail.com">
                                                 <p class="text-xl text-gray-800  font-semibold">Workout Name</p>
-                                                <p class="dark:text-gray-600"> Bend Dumble Raises</p>
+                                                <p class="dark:text-gray-600"> {{ workout.title }}</p>
                                             </div>
                                         </a>
                                         <a href="https://m.facebook.com/TheGymStreet"
@@ -73,7 +73,7 @@
                                             </span>
                                             <div class="text-left ml-2.5 overflow-hidden" title="supp.mikegester@gmail.com">
                                                 <p class="text-xl text-gray-800  font-semibold"> Description</p>
-                                                <p class="dark:text-gray-600"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Non quae omnis beatae provident, facilis iusto sed voluptatibus quasi, in, iste sunt id ipsam magnam repudiandae voluptatum? Pariatur, quasi? Tempore, nobis.</p>
+                                                <p class="dark:text-gray-600"> {{ workout.description }}</p>
                                             </div>
                                         </a>
 
@@ -81,11 +81,11 @@
                                             class="flex  border-gray-200 dark:border-gray-700 py-2.5  ion-activatable ripple-parent rectangle">
                                             <ion-ripple-effect></ion-ripple-effect>
                                             <span class="p-2 bg-white rounded-md text-[#004aad]">
-                                                <Icon icon="typcn:arrow-repeat"  class="w-10 h-10" />
+                                                <Icon icon="typcn:arrow-repeat" class="w-10 h-10" />
                                             </span>
                                             <div class="text-left ml-2.5">
                                                 <p class="text-xl text-gray-800  font-semibold"> Reps </p>
-                                                <p class="dark:text-gray-600">20</p>
+                                            <p class="dark:text-gray-600">{{ workout.reps }}</p>
                                             </div>
                                         </a>
 
@@ -97,7 +97,7 @@
                                             </span>
                                             <div class="text-left ml-2.5">
                                                 <p class="text-xl text-gray-800  font-semibold"> Sets </p>
-                                                <p class="dark:text-gray-600">4</p>
+                                                <p class="dark:text-gray-600">{{ workout.set  }}</p>
                                             </div>
                                         </a>
                                         <a href="tel:09357456767"
@@ -108,33 +108,13 @@
                                             </span>
                                             <div class="text-left ml-2.5">
                                                 <p class="text-xl text-gray-800  font-semibold">Time</p>
-                                                <p class="dark:text-gray-600">1hr 30mins</p>
+                                                <p class="dark:text-gray-600">{{ workout.time }} seconds</p>
                                             </div>
                                         </a>
-                                        <a href="tel:09357456767"
-                                            class="flex  border-gray-200 dark:border-gray-700 py-2.5  ion-activatable ripple-parent rectangle">
-                                            <ion-ripple-effect></ion-ripple-effect>
-                                            <span class="p-2 bg-white rounded-md text-[#004aad]">
-                                                <Icon icon="icon-park-outline:muscle" class="w-10 h-10" />
-                                            </span>
-                                            <div class="text-left ml-2.5">
-                                                <p class="text-xl text-gray-800  font-semibold"> Muscle Group</p>
-                                                <p class="dark:text-gray-600">Back</p>
-                                            </div>
-                                        </a>
-                                        <a href="tel:09357456767"
-                                            class="flex  border-gray-200 dark:border-gray-700 py-2.5  ion-activatable ripple-parent rectangle">
-                                            <ion-ripple-effect></ion-ripple-effect>
-                                            <span class="p-2 bg-white rounded-md text-[#004aad]">
-                                                <Icon icon="uil:image-share" class="w-10 h-10" />
-                                            </span>
-                                            <div class="text-left ml-2.5">
-                                                <p class="text-xl text-gray-800  font-semibold"> Image URL</p>
-                                                <p class="dark:text-gray-600">www.ph.com/ucsadasdaw</p>
-                                            </div>
-                                        </a>
-                                    
-                                        <a href="tel:09357456767"
+                                       
+                                      
+
+                                        <a :href="workout.youtubeUrl"
                                             class="flex  border-gray-200 dark:border-gray-700 py-2.5  ion-activatable ripple-parent rectangle">
                                             <ion-ripple-effect></ion-ripple-effect>
                                             <span class="p-2 bg-white rounded-md text-[#004aad]">
@@ -142,7 +122,7 @@
                                             </span>
                                             <div class="text-left ml-2.5">
                                                 <p class="text-xl text-gray-800  font-semibold"> Youtube URL</p>
-                                                <p class="dark:text-gray-600">www.yt.com/asdawfawrfwf</p>
+                                                <p class="dark:text-gray-600">{{ workout.youtubeUrl }}</p>
                                             </div>
                                         </a>
                                     </div>
@@ -168,6 +148,8 @@ import { defineComponent } from 'vue';
 import { createOutline, settingsOutline } from 'ionicons/icons';
 import backend from '../../../config/axios';
 import { Icon } from '@iconify/vue';
+import { alertController } from '@ionic/vue';
+import { Toast } from '@capacitor/toast';
 export default defineComponent({
     components: {
         // IonCardHeader,
@@ -189,13 +171,43 @@ export default defineComponent({
     },
     data() {
         return {
-            clients: [],
+            workout: [],
         };
     },
     async mounted() {
-        const clientsResult = await backend.get('/v1/admin/clients')
-        this.clients = clientsResult.data.data
+        const id = this.$route.params.id
+        const workoutsResult = await backend.get(`/v1/admin/workout-library/${id}`)
+
+        this.workout = workoutsResult.data.data
+        console.log(this.workout)
     },
+    methods: {
+        async handleDeleteWorkout() {
+            const alert = await alertController.create({
+                mode: 'ios',
+                header: 'Delete Workout',
+                message: 'This will delete the Workout and is unreversible. Continue?',
+                buttons: [{
+                    text: 'Yes',
+                    role: 'destructive',
+                    handler: async () => {
+                        await backend.delete(`/v1/admin/workout-library/${this.workout.id}`)
+
+                        await Toast.show({
+                            text: 'Deleted successfully.',
+                        });
+
+                        this.$router.push('/tabs/Workouts')
+                    }
+                }, {
+                    text: 'No',
+                    role: 'cancel'
+                }],
+            });
+
+            await alert.present();
+        }
+    }
 });
 </script>
     
