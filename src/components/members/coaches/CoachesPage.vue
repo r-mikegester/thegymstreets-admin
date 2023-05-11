@@ -41,7 +41,7 @@
                 <div class="flex">
                   <p
                     class="mx-auto text-white px-3 py-1 font-bold rounded-3xl text-xl bg-[#004aad] md:ml-80 md:-mt-20 mb-10 ">
-                    3 </p>
+                    {{ coach?.coachings?.length??0 }} Coaching(s) </p>
                 </div>
               </div>
             </div>
