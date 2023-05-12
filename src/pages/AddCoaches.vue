@@ -144,6 +144,7 @@ export default defineComponent({
                 await backend.post('/v1/admin/coaches', this.newCoach);
                 
                 this.$router.push('/tabs/Members')
+                window.location.reload()
                 Toast.show({
                     text: 'Successfully added new coach.'
                 })

@@ -325,8 +325,9 @@ export default defineComponent({
         async addClient() {
             try {
                 await backend.post('/v1/admin/clients', this.newClient);
-                
+              
                 this.$router.push('/tabs/Members')
+                  window.location.reload()
                 Toast.show({
                     text: 'Successfully added new client.'
                 })
