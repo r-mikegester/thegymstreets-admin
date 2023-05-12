@@ -46,8 +46,8 @@
                   <div class="h-10 rounded-t-3xl mx-5 py-5 px-3 text-xl font-bold">Social Links</div>
 
                   <div class=" p-3 rounded-2xl m-2">
-                    <ion-item href="https://m.facebook.com/TheGymStreet" lines="none"
-                      class="text-gray-900 ion-activatable ripple-parent rectangle" id="openLoc" button detail="true">
+                    <ion-item href="https://m.facebook.com/TheGymStreet" target="_blank" lines="none"
+                      class="text-gray-900 ion-activatable ripple-parent rectangle" button detail="true">
                       <ion-ripple-effect></ion-ripple-effect>
                       <span class="p-2 bg-white rounded-md  text-[#004aad]">
                         <Icon icon="ant-design:facebook-outlined" class="w-10 h-10" />
@@ -57,7 +57,7 @@
                         <p class="dark:text-gray-600 text-base"> The Gym Street</p>
                       </div>
                     </ion-item>
-                    <ion-item href="tel:09357456767" lines="none" class="text-gray-900 ion-activatable ripple-parent rectangle" id="openLoc" type="button"
+                    <ion-item href="tel:09357456767" lines="none" class="text-gray-900 ion-activatable ripple-parent rectangle" type="button"
                       detail="true">
                       <ion-ripple-effect></ion-ripple-effect>
                       <span class="p-2 bg-white rounded-md  text-[#004aad]">
@@ -105,7 +105,7 @@
                         <p class="dark:text-gray-600 text-base"> View graphical location</p>
                       </div>
                     </ion-item>
-                    <ion-item href="/login" lines="none" class="text-gray-900 ion-activatable ripple-parent rectangle" id="openLoc" type="button" detail="true">
+                    <ion-item href="/login" lines="none" class="text-gray-900 ion-activatable ripple-parent rectangle"  type="button" detail="true">
                       <ion-ripple-effect></ion-ripple-effect>
                       <span class="p-2 bg-white rounded-md  text-[#004aad]">
                         <Icon icon="majesticons:door-exit-line" class="w-10 h-10" />
