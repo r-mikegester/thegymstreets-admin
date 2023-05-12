@@ -44,12 +44,7 @@
           </MembersTab>
           <MembersTab title="Coaches">
             <div class="mx-auto max-w-screen-xl p-5">
-              <div class="mx-0  justify-center">
-                <div
-                  class=" max-w-9xl text-gray-900 col-span-3 md:col-span-2 row-span-3 row-start-1  justify-center  row-end-3 rounded-3xl">
-                  <div class="flex flex-col  max-w-3xl rounded-3xl  h-full">
-
-                    
+                  
                     <ion-nav-link router-direction="forward" :component="component">
                       <ion-item :href="'/coachesView/' + coach.id " detail="true" lines="none" class=" text-gray-900 hover:bg-gray-400 focus:text-gray-900 transition-all ion-activatable ripple-parent rounded-rectangle ease-in-out" v-for="coach in filteredCoaches" :key="coach.id">
                         <ion-avatar slot="start">
@@ -62,9 +57,7 @@
                         <ion-ripple-effect class="customRipple"></ion-ripple-effect>
                       </ion-item>
        </ion-nav-link>
-                  </div>
-                </div>
-              </div>
+
             </div>
 
           </MembersTab>
