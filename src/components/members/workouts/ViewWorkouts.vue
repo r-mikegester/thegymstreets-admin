@@ -35,10 +35,14 @@
                                     </h1>
 
                                 </span>
-                                <div class="flex">
+                                <div class="flex" v-if="workout.muscleGroups" className="flex gap-2 justify-center items-center">
                                     <p
-                                        class="mx-auto text-white px-3 py-1 font-bold rounded-3xl text-xl bg-[#004aad] md:ml-80 md:-mt-20 mb-10 ">
-                                        Back </p>
+                                        class="text-white px-3 py-1 capitalize font-bold rounded-3xl text-xl bg-[#004aad] md:ml-80 md:-mt-20 mb-10 "
+                                        v-for="group in workout.muscleGroups"
+                                        :key="group"
+                                    >
+                                        {{   group }}
+                                    </p>
                                 </div>
                             </div>
                         </div>

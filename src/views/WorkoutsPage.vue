@@ -17,7 +17,7 @@
         <ion-list lines="none">
           <ion-item @click="viewWorkout(workout.id)" class="text-gray-900" detail="true" v-for="(workout, index) in workouts" :key="index">
             <ion-thumbnail slot="start">
-              <img alt="Silhouette of mountains" :src="workout.imageUrl" class="rounded-xl" />
+              <img alt="Workout img" :src="workout.imageUrl" class="rounded-xl" />
             </ion-thumbnail>
             <ion-label>
               <h2>{{ workout.title }}</h2>
